@@ -1,0 +1,51 @@
+﻿@using KYSv2.Models;
+
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <div class="profile-sidebar">
+        <div class="profile-userpic">
+            <img src="/images/avatar2.png" class="img-responsive" alt="">
+        </div>
+        <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+                <a href="/Profile">@TempData["Name"]</a>
+            </div>
+            <div class="profile-usertitle-status"><span class="indicator label-success"></span>@TempData["Department"]</div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="divider"></div>
+    <form role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <ul class="nav menu">
+
+
+
+        <li ><a href="/Home/Index"><em class="fa fa-dashboard">&nbsp;</em>Mesai Yönetimi</a></li>
+        <li><a href="/Home/Izin_Talebi"><em class="fa fa-calendar">&nbsp;</em> İzin Talebi</a></li>
+        <li><a href="/Home/Haberlesme"><em class="fa fa-bar-chart">&nbsp;</em> Haberleşme</a></li>
+        <li><a href="/Home/Veri_Alisverisi"><em class="fa fa-toggle-off">&nbsp;</em> Veri Alışverişi</a></li>
+        <li class="parent ">
+            <a data-toggle="collapse" href="#sub-item-1">
+                <em class="fa fa-address-card">&nbsp;</em>Personel<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-1">
+                <li>
+                    <a class="" href="PersonelEkle">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Ekle
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="GuncelleSil">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Güncelle veya Sil
+                    </a>
+                </li>              
+            </ul>
+        </li>
+        <li><a href="/Security/Login"><em class="fa fa-power-off">&nbsp;</em>Cikis Yap</a></li>
+    </ul>
+</div>
+<!--/.sidebar-->
