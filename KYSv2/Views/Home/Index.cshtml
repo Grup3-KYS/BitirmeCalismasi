@@ -5,556 +5,489 @@
 }
 
 
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-        <!--/.row-->
 
+    <div class="panel panel-container">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header display-1">Hoşgeldiniz</h1>
+            <div class="col-xs-6 col-md-4 col-lg-4 no-padding">
+                <div class="panel  panel-widget border-right">
+                    <div class="row no-padding">
+                        <br>
+                        <h2 class="display-2">Hoşgeldiniz</h2>
+                    </div>
+                </div>
             </div>
+            <div class="col-xs-6 col-md-2 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    <div class="row no-padding">
+                        <img src="/images/open.png" /><br />
+                        <button class="btn btn-link" type="button">Mesai Başlangıcı</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-2 col-lg-2 no-padding">
+                <div class="panel panel-blue panel-widget border-right">
+                    <div class="row no-padding">
+                        <img src="/images/close.png" /><br />
+                        <button class="btn btn-link" type="button">Mesai Bitişi</button>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-3 col-lg-3 no-padding">
+                <div class="panel  panel-widget">
+                    <div class="row no-padding">
+                        <a class="weatherwidget-io" href="https://forecast7.com/tr/41d0128d98/istanbul/" data-label_1="İSTANBUL" data-font="Roboto" data-icons="Climacons Animated" data-mode="Current" data-days="3" data-theme="pure" data-mooncolor="#0f63e6" data-cloudcolor="#0f63e6">İSTANBUL</a>
+                        <script>
+                            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!--/.row-->
         </div>
-        <!--/.row-->
-
-        <div class="panel panel-container">
-            <div class="row">
-                <div class="col-xs-6 col-md-4 col-lg-4 no-padding">
-                    <div class="panel  panel-widget border-right">
-                        <div class="row no-padding">
-                            <br>
-                            <h2 class="display-2">Hoşgeldiniz</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-2 col-lg-2 no-padding">
-                    <div class="panel panel-teal panel-widget border-right">
-                        <div class="row no-padding">
-                            <img src="/images/open.png" /><br />
-                            <button class="btn btn-link" type="button">Mesai Başlangıcı</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-2 col-lg-2 no-padding">
-                    <div class="panel panel-blue panel-widget border-right">
-                        <div class="row no-padding">
-                            <img src="/images/close.png" /><br />
-                            <button class="btn btn-link" type="button">Mesai Bitişi</button>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-md-3 col-lg-3 no-padding">
-                    <div class="panel  panel-widget">
-                        <div class="row no-padding">
-                            <a class="weatherwidget-io" href="https://forecast7.com/tr/41d0128d98/istanbul/" data-label_1="İSTANBUL" data-font="Roboto" data-icons="Climacons Animated" data-mode="Current" data-days="3" data-theme="pure" data-mooncolor="#0f63e6" data-cloudcolor="#0f63e6">İSTANBUL</a>
-                            <script>
-                                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
-                            </script>
-                        </div>
-                    </div>
-                </div>
-                <!--/.row-->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-default articles">
-                    <div class="panel-heading">
-                        Duyurular
-                        <ul class="pull-right panel-settings panel-button-tab-right">
-                            <li class="dropdown">
-                                <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <em class="fa fa-cogs"></em>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <ul class="dropdown-settings">
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 1
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 2
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 3
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                    </div>
-                    <div class="panel-body articles-container">
-                        <div class="article border-bottom">
-                            <div class="col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-2 col-md-2 date">
-                                        <div class="large">30</div>
-                                        <div class="text-muted">Jun</div>
-                                    </div>
-                                    <div class="col-xs-10 col-md-10">
-                                        <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div><!--End .article-->
-
-                        <div class="article border-bottom">
-                            <div class="col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-2 col-md-2 date">
-                                        <div class="large">28</div>
-                                        <div class="text-muted">Jun</div>
-                                    </div>
-                                    <div class="col-xs-10 col-md-10">
-                                        <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div><!--End .article-->
-
-                        <div class="article">
-                            <div class="col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-2 col-md-2 date">
-                                        <div class="large">24</div>
-                                        <div class="text-muted">Jun</div>
-                                    </div>
-                                    <div class="col-xs-10 col-md-10">
-                                        <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div><!--End .article-->
-                    </div>
-                </div><!--End .articles-->
-
-
-            </div><!--/.col-->
-
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Takvim
-                        <ul class="pull-right panel-settings panel-button-tab-right">
-                            <li class="dropdown">
-                                <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <em class="fa fa-cogs"></em>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <ul class="dropdown-settings">
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 1
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 2
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 3
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                    </div>
-                    <div class="panel-body">
-                        <div id="calendar"></div>
-                    </div>
-                </div>
-
-            </div><!--/.col-->
-        </div><!--/.row-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Site Traffic Overview
-                        <ul class="pull-right panel-settings panel-button-tab-right">
-                            <li class="dropdown">
-                                <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <em class="fa fa-cogs"></em>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <ul class="dropdown-settings">
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 1
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 2
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 3
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                    </div>
-                    <div class="panel-body">
-                        <div class="canvas-wrapper">
-                            <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/.row-->
-
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>New Orders</h4>
-                        <div class="easypiechart" id="easypiechart-blue" data-percent="92"><span class="percent">92%</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Comments</h4>
-                        <div class="easypiechart" id="easypiechart-orange" data-percent="65"><span class="percent">65%</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>New Users</h4>
-                        <div class="easypiechart" id="easypiechart-teal" data-percent="56"><span class="percent">56%</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Visitors</h4>
-                        <div class="easypiechart" id="easypiechart-red" data-percent="27"><span class="percent">27%</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/.row-->
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-default chat">
-                    <div class="panel-heading">
-                        Chat
-                        <ul class="pull-right panel-settings panel-button-tab-right">
-                            <li class="dropdown">
-                                <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <em class="fa fa-cogs"></em>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <ul class="dropdown-settings">
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 1
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 2
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 3
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                    </div>
-                    <div class="panel-body">
-                        <ul>
-                            <li class="left clearfix">
-                                <span class="chat-img pull-left">
-                                    <img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
-                                </span>
-                                <div class="chat-body clearfix">
-                                    <div class="header"><strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
-                                </div>
-                            </li>
-                            <li class="right clearfix">
-                                <span class="chat-img pull-right">
-                                    <img src="http://placehold.it/60/dde0e6/5f6468" alt="User Avatar" class="img-circle" />
-                                </span>
-                                <div class="chat-body clearfix">
-                                    <div class="header"><strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins ago</small></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
-                                </div>
-                            </li>
-                            <li class="left clearfix">
-                                <span class="chat-img pull-left">
-                                    <img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
-                                </span>
-                                <div class="chat-body clearfix">
-                                    <div class="header"><strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="input-group">
-                            <input id="btn-input" type="text" class="form-control input-md" placeholder="Type your message here..." /><span class="input-group-btn">
-                                <button class="btn btn-primary btn-md" id="btn-chat">Send</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        To-do List
-                        <ul class="pull-right panel-settings panel-button-tab-right">
-                            <li class="dropdown">
-                                <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <em class="fa fa-cogs"></em>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <ul class="dropdown-settings">
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 1
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 2
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 3
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="todo-list">
-                            <li class="todo-list-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox-1" />
-                                    <label for="checkbox-1">Make coffee</label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="#" class="trash">
-                                        <em class="fa fa-trash"></em>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="todo-list-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox-2" />
-                                    <label for="checkbox-2">Check emails</label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="#" class="trash">
-                                        <em class="fa fa-trash"></em>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="todo-list-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox-3" />
-                                    <label for="checkbox-3">Reply to Jane</label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="#" class="trash">
-                                        <em class="fa fa-trash"></em>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="todo-list-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox-4" />
-                                    <label for="checkbox-4">Make more coffee</label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="#" class="trash">
-                                        <em class="fa fa-trash"></em>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="todo-list-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox-5" />
-                                    <label for="checkbox-5">Work on the new design</label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="#" class="trash">
-                                        <em class="fa fa-trash"></em>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="todo-list-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox-6" />
-                                    <label for="checkbox-6">Get feedback on design</label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="#" class="trash">
-                                        <em class="fa fa-trash"></em>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="input-group">
-                            <input id="btn-input" type="text" class="form-control input-md" placeholder="Add new task" /><span class="input-group-btn">
-                                <button class="btn btn-primary btn-md" id="btn-todo">Add</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/.col-->
-
-
-            <div class="col-md-6">
-                <div class="panel panel-default ">
-                    <div class="panel-heading">
-                        Timeline
-                        <ul class="pull-right panel-settings panel-button-tab-right">
-                            <li class="dropdown">
-                                <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <em class="fa fa-cogs"></em>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <ul class="dropdown-settings">
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 1
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 2
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">
-                                                    <em class="fa fa-cog"></em> Settings 3
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                    </div>
-                    <div class="panel-body timeline-container">
-                        <ul class="timeline">
-                            <li>
-                                <div class="timeline-badge"><em class="glyphicon glyphicon-pushpin"></em></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">Lorem ipsum dolor sit amet</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="timeline-badge primary"><em class="glyphicon glyphicon-link"></em></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">Lorem ipsum dolor sit amet</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="timeline-badge"><em class="glyphicon glyphicon-camera"></em></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">Lorem ipsum dolor sit amet</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="timeline-badge"><em class="glyphicon glyphicon-paperclip"></em></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">Lorem ipsum dolor sit amet</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/.col-->
-            <div class="col-sm-12">
-                <p class="back-link">KURUM YÖNETİM SİSTEMİ 2020 </p>
-            </div>
-        </div>
-        <!--/.row-->
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default articles">
+                <div class="panel-heading">
+                    Duyurular
+                    <ul class="pull-right panel-settings panel-button-tab-right">
+                        <li class="dropdown">
+                            <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+                                <em class="fa fa-cogs"></em>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <ul class="dropdown-settings">
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 1
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 2
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 3
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+                </div>
+                <div class="panel-body articles-container">
+                    <div class="article border-bottom">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 date">
+                                    <div class="large">08</div>
+                                    <div class="text-muted">Mart</div>
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <h4><a href="#">İşe Giriş - Çıkış Saatleri Hakkında Bilgilendirme</a></h4>
+                                    <p>Bazı çalışanlarımızın işe giriş saatlarine uymadığı tespit edilmiştir. Bundan sonra mesai saatleri içerisinde gelmeyenlerden belirli bir ücret kesintisi olacaktır.  </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!--End .article-->
+
+                    <div class="article border-bottom">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 date">
+                                    <div class="large">07</div>
+                                    <div class="text-muted">Mart</div>
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <h4><a href="#">Korona Virüsü Hakkında Bilgilendirme</a></h4>
+                                    <p>Çalışanlarımızın sağlığı her şeyden önemlidir. Sizden ricamız hijyen kurallarına bu süreçte daha dikkat etmeniz. Önümüzdeki günlerde bu konu hakkında daha genel bir duyuru yapılacaktır. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!--End .article-->
+
+                    <div class="article">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 date">
+                                    <div class="large">02</div>
+                                    <div class="text-muted">Mart</div>
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <h4><a href="#">Deployment Yapılacaktır</a></h4>
+                                    <p>Bu akşam saat 20.00 - 20.30 arasında deployment çalışması yapılcaktır. O süre boyunca sisteme girişiniz engellenecektir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!--End .article-->
+                </div>
+            </div><!--End .articles-->
+
+
+        </div><!--/.col-->
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Takvim
+                    <ul class="pull-right panel-settings panel-button-tab-right">
+
+                        <li class="dropdown">
+                            <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+                                <em class="fa fa-cogs"></em>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <ul class="dropdown-settings">
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 1
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 2
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 3
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+                </div>
+                <div class="panel-body">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+
+        </div><!--/.col-->
+    </div><!--/.row-->
+
+
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Tamamlanan Mesai</h4>
+                    <div class="easypiechart" id="easypiechart-blue" data-percent="92"><span class="percent">92%</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Tamamlanan Projeler</h4>
+                    <div class="easypiechart" id="easypiechart-orange" data-percent="65"><span class="percent">65%</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Proje İlerleme</h4>
+                    <div class="easypiechart" id="easypiechart-teal" data-percent="56"><span class="percent">56%</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--/.row-->
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default chat">
+                <div class="panel-heading">
+                    Chat
+                    <ul class="pull-right panel-settings panel-button-tab-right">
+                        <li class="dropdown">
+                            <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+                                <em class="fa fa-cogs"></em>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <ul class="dropdown-settings">
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 1
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 2
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 3
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li class="left clearfix">
+                            <span class="chat-img pull-left">
+                                <img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"><strong class="primary-font">Ersin Uçar</strong> <small class="text-muted">32 mins ago</small></div>
+                                <p>Genel verim toplantısı saat kaçta?</p>
+                            </div>
+                        </li>
+                        <li class="right clearfix">
+                            <span class="chat-img pull-right">
+                                <img src="http://placehold.it/60/dde0e6/5f6468" alt="User Avatar" class="img-circle" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"><strong class="pull-left primary-font">Elif Avcı</strong> <small class="text-muted">6 mins ago</small></div>
+                                <p>Saat 09.30 da, toplantı salonunda.</p>
+                            </div>
+                        </li>
+                        <li class="left clearfix">
+                            <span class="chat-img pull-left">
+                                <img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"><strong class="primary-font">Ersin Uçar</strong> <small class="text-muted">3 mins ago</small></div>
+                                <p>Teşekkürler, iyi çalışmalar.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-md" placeholder="Mesajınızı buraya yazın..." /><span class="input-group-btn">
+                            <button class="btn btn-primary btn-md" id="btn-chat">Gönder</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    To-do List
+                    <ul class="pull-right panel-settings panel-button-tab-right">
+                        <li class="dropdown">
+                            <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+                                <em class="fa fa-cogs"></em>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <ul class="dropdown-settings">
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 1
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 2
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 3
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="todo-list">
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-1" />
+                                <label for="checkbox-1">Genel verim toplantısı</label>
+                            </div>
+                            <div class="pull-right action-buttons">
+                                <a href="#" class="trash">
+                                    <em class="fa fa-trash"></em>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-2" />
+                                <label for="checkbox-2">Maillerini kontrol et</label>
+                            </div>
+                            <div class="pull-right action-buttons">
+                                <a href="#" class="trash">
+                                    <em class="fa fa-trash"></em>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-3" />
+                                <label for="checkbox-3">Ödeme sistemleri kontrolü</label>
+                            </div>
+                            <div class="pull-right action-buttons">
+                                <a href="#" class="trash">
+                                    <em class="fa fa-trash"></em>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-4" />
+                                <label for="checkbox-4">Proje yönetimi toplantısı</label>
+                            </div>
+                            <div class="pull-right action-buttons">
+                                <a href="#" class="trash">
+                                    <em class="fa fa-trash"></em>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-md" placeholder="Yeni görev ekle" /><span class="input-group-btn">
+                            <button class="btn btn-primary btn-md" id="btn-todo">Add</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+
+        <div class="col-md-6">
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    Timeline
+                    <ul class="pull-right panel-settings panel-button-tab-right">
+                        <li class="dropdown">
+                            <a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+                                <em class="fa fa-cogs"></em>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <ul class="dropdown-settings">
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 1
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 2
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">
+                                                <em class="fa fa-cog"></em> Settings 3
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+                </div>
+                <div class="panel-body timeline-container">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge"><em class="glyphicon glyphicon-pushpin"></em></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Proje yönetimi toplantısı</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Proje yönetimi departmanı ile beraber saat 14.00 da 2.kat topalntı odasında değerlendirme yapılacaktır</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge primary"><em class="glyphicon glyphicon-link"></em></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Şeyma Genç yeni bir bağlantı paylaştı.</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Yeni Ar-Ge'miz kullanıma açıldı.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge"><em class="glyphicon glyphicon-camera"></em></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Yeni Etkinlik</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Etkinliğimize davetlisiniz.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col-sm-12">
+            <p class="back-link">KURUM YÖNETİM SİSTEMİ 2020 </p>
+        </div>
+    </div>
+    <!--/.row-->
+</div>
+<!--/.main-->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/chart.min.js"></script>
+<script src="/js/chart-data.js"></script>
+<script src="/js/easypiechart.js"></script>
+<script src="/js/easypiechart-data.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/custom.js"></script>
+<script>
+    window.onload = function () {
+        var chart1 = document.getElementById("line-chart").getContext("2d");
+        window.myLine = new Chart(chart1).Line(lineChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+    };
+</script>

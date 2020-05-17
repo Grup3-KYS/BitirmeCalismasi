@@ -45,7 +45,8 @@
 
                         <div class="form-group">
                             @Html.Label("Role ID")
-                            @Html.TextBoxFor(m => m.roleID, new { @class = "form-control", @placeholder = "Kullanıcı Adı Giriniz." })
+                            @*@Html.DropDownListFor(m => m.roleID, (List<SelectListItem>)ViewBag.role, new { @class = "form-control" })*@
+                            @Html.TextBoxFor(m => m.roleID, new { @class = "form-control" })
 
                         </div>
 
@@ -86,10 +87,12 @@
 
                         </div>
                         <div class="form-group">
-                            @Html.Label("Personel Departmanı")
-                           
-                        </div>
+                            @Html.Label("Aktif Calisan mi?")
+                            @*@Html.DropDownListFor(m => m.isActive, (List<SelectListItem>)ViewBag.user, new { @class = "form-control" })*@
+                            @Html.TextBoxFor(m => m.isActive, new { @class = "form-control" })
+                            )
 
+                        </div>
 
 
                         @Html.HiddenFor(m => m.userID)

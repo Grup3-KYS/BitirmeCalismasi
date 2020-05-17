@@ -12,13 +12,17 @@ namespace KYSv2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class menuRole
+    public partial class IzinTalebi
     {
-        public int menuRoleID { get; set; }
-        public int menuId { get; set; }
-        public int roleID { get; set; }
+        public int IzinID { get; set; }
+        public int UserID { get; set; }
+        public string userFirstName { get; set; }
+        public string userLastName { get; set; }
+        public string userEmail { get; set; }
+        public string Message { get; set; }
     
-        public virtual menu menu { get; set; }
-        public virtual role role { get; set; }
+        public virtual IzinTalebi IzinTalebi1 { get; set; }
+        public virtual IzinTalebi IzinTalebi2 { get; set; }
+        public virtual user user { get; set; }
     }
 }

@@ -8,9 +8,9 @@
         </div>
         <div class="profile-usertitle">
             <div class="profile-usertitle-name">
-                <a href="/Profile">@TempData["Name"]</a>
+                <a href="/Profile">@Session["Name"]</a>
             </div>
-            <div class="profile-usertitle-status"><span class="indicator label-success"></span>@TempData["Department"]</div>
+            <div class="profile-usertitle-status"><span class="indicator label-success"></span>@Session["Department"]</div>
         </div>
         <div class="clear"></div>
     </div>
@@ -24,10 +24,11 @@
 
 
 
-        <li ><a href="/Home/Index"><em class="fa fa-dashboard">&nbsp;</em>Mesai Yönetimi</a></li>
+        <li class="active"><a href="/Home/Index"><em class="fa fa-dashboard">&nbsp;</em>Mesai Yönetimi</a></li>
         <li><a href="/Home/Izin_Talebi"><em class="fa fa-calendar">&nbsp;</em> İzin Talebi</a></li>
         <li><a href="/Home/Haberlesme"><em class="fa fa-bar-chart">&nbsp;</em> Haberleşme</a></li>
         <li><a href="/Home/Veri_Alisverisi"><em class="fa fa-toggle-off">&nbsp;</em> Veri Alışverişi</a></li>
+
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-1">
                 <em class="fa fa-address-card">&nbsp;</em>Personel<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>

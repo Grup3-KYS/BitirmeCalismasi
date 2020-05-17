@@ -17,12 +17,12 @@ namespace KYSv2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public user()
         {
+            this.IzinTalebi = new HashSet<IzinTalebi>();
             this.shift = new HashSet<shift>();
-            this.request = new HashSet<request>();
         }
     
         public int userID { get; set; }
-        public Nullable<bool> isActive { get; set; }
+        public bool isActive { get; set; }
         public string userName { get; set; }
         public string userPassword { get; set; }
         public string userEmail { get; set; }
@@ -32,10 +32,10 @@ namespace KYSv2.Models
         public string userAddress { get; set; }
         public int roleID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IzinTalebi> IzinTalebi { get; set; }
         public virtual role role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shift> shift { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<request> request { get; set; }
     }
 }

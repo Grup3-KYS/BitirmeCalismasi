@@ -1,7 +1,82 @@
-﻿
+﻿@using KYSv2.Models;
+
+
 @{
     ViewBag.Title = "GuncelleSil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    KYSEntities ent = new KYSEntities();
+    //var model = ent.user.ToList();
 }
 
 <h2>GuncelleSil</h2>
+@{
+    var users = ViewBag.users;
+    
+}
 
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header ">Personel Guncelle</h1>
+        </div>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!--user listelendigi kisim-->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+
+                                <th>Kullanıcı Adı</th>
+                                <th>Personel Adı</th>
+                                <th>Personel Soyadı</th>
+                                <th>Personel Şifresi</th>
+                                <th>Personel Numarası</th>
+                                <th>Personel Adresi</th>
+                                <th>Personel Mail Adresi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in users)
+                            {
+                                <tr>
+
+                                    <td>@item.userName</td>
+                                    <td>@item.userFirstName</td>
+                                    <td>@item.userLastName</td>
+                                    <td>@item.userPassword</td>
+                                    <td>@item.userPhone</td>
+                                    <td>@item.userAddress</td>
+                                    <td>@item.userEmail</td>
+
+                                    <td>
+
+                                        <a class="btn btn-info"
+                                           href="@Url.Action("Guncelle", new {@id = item.userID })">Düzenle</a>
+                                        <a class="btn btn-danger"
+                                           href="@Url.Action("Sil")">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/chart-data.js"></script>
+    <script src="js/easypiechart.js"></script>
+    <script src="js/easypiechart-data.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/custom.js"></script>

@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="190f66c5f30e4515b92cb770f2a81b53" Name="Diagram1" ZoomLevel="66">
-        <EntityTypeShape EntityType="KYSModel.menuRole" Width="1.5" PointX="2.25" PointY="1.25" />
-        <EntityTypeShape EntityType="KYSModel.role" Width="1.5" PointX="0.75" PointY="4" />
-        <EntityTypeShape EntityType="KYSModel.shift" Width="1.5" PointX="6.125" PointY="3.875" />
-        <EntityTypeShape EntityType="KYSModel.user" Width="1.5" PointX="3" PointY="4.5" />
-        <AssociationConnector Association="KYSModel.FK_menuRole_roleID" />
-        <AssociationConnector Association="KYSModel.FK_user_roleID" />
-        <AssociationConnector Association="KYSModel.FK_shift_userID" />
-        <EntityTypeShape EntityType="KYSModel.menu" Width="1.5" PointX="5.375" PointY="0.875" />
-        <AssociationConnector Association="KYSModel.FK_menuRole_menuID" />
-        <EntityTypeShape EntityType="KYSModel.request" Width="1.5" PointX="6.125" PointY="6.875" />
-        <AssociationConnector Association="KYSModel.FK_request_userID" />
+      <Diagram DiagramId="281a4f7631e5437dafe1975d6dcb8743" Name="Diagram1">
+        <EntityTypeShape EntityType="KYSModel.IzinTalebi" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYSModel.menu" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYSModel.menuRole" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYSModel.role" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYSModel.shift" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYSModel.user" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="KYSModel.FK_IzinTalebi_IzinTalebi" ManuallyRouted="false" />
+        <AssociationConnector Association="KYSModel.FK_IzinTalebi_user" ManuallyRouted="false" />
+        <AssociationConnector Association="KYSModel.FK_menuRole_menuID" ManuallyRouted="false" />
+        <AssociationConnector Association="KYSModel.FK_menuRole_roleID" ManuallyRouted="false" />
+        <AssociationConnector Association="KYSModel.FK_user_roleID" ManuallyRouted="false" />
+        <AssociationConnector Association="KYSModel.FK_shift_userID" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

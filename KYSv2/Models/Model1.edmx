@@ -4,14 +4,25 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="KYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="KYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IzinTalebi">
+          <Key>
+            <PropertyRef Name="IzinID" />
+          </Key>
+          <Property Name="IzinID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="userFirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="userLastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="userEmail" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="menu">
           <Key>
             <PropertyRef Name="menuID" />
           </Key>
           <Property Name="menuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="parentMenuID" Type="int" Nullable="false" />
-          <Property Name="menuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="parentMenuID" Type="nvarchar" MaxLength="50" />
+          <Property Name="menuName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="menuURL" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="isActive" Type="bit" Nullable="false" />
         </EntityType>
@@ -22,15 +33,6 @@
           <Property Name="menuRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="menuId" Type="int" Nullable="false" />
           <Property Name="roleID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="request">
-          <Key>
-            <PropertyRef Name="requestID" />
-          </Key>
-          <Property Name="requestID" Type="int" Nullable="false" />
-          <Property Name="userID" Type="int" Nullable="false" />
-          <Property Name="startDate" Type="date" Nullable="false" />
-          <Property Name="endDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="role">
           <Key>
@@ -55,7 +57,7 @@
             <PropertyRef Name="userID" />
           </Key>
           <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="isActive" Type="bit" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
           <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="userPassword" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="userEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -65,6 +67,30 @@
           <Property Name="userAddress" Type="text" Nullable="false" />
           <Property Name="roleID" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_IzinTalebi_IzinTalebi">
+          <End Role="IzinTalebi" Type="Self.IzinTalebi" Multiplicity="1" />
+          <End Role="IzinTalebi1" Type="Self.IzinTalebi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="IzinTalebi">
+              <PropertyRef Name="IzinID" />
+            </Principal>
+            <Dependent Role="IzinTalebi1">
+              <PropertyRef Name="IzinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IzinTalebi_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="IzinTalebi" Type="Self.IzinTalebi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="IzinTalebi">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_menuRole_menuID">
           <End Role="menu" Type="Self.menu" Multiplicity="1" />
           <End Role="menuRole" Type="Self.menuRole" Multiplicity="*" />
@@ -86,18 +112,6 @@
             </Principal>
             <Dependent Role="menuRole">
               <PropertyRef Name="roleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_request_userID">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="request" Type="Self.request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="request">
-              <PropertyRef Name="userID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -126,12 +140,20 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="KYSModelStoreContainer">
+          <EntitySet Name="IzinTalebi" EntityType="Self.IzinTalebi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menuRole" EntityType="Self.menuRole" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="shift" EntityType="Self.shift" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_IzinTalebi_IzinTalebi" Association="Self.FK_IzinTalebi_IzinTalebi">
+            <End Role="IzinTalebi" EntitySet="IzinTalebi" />
+            <End Role="IzinTalebi1" EntitySet="IzinTalebi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IzinTalebi_user" Association="Self.FK_IzinTalebi_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="IzinTalebi" EntitySet="IzinTalebi" />
+          </AssociationSet>
           <AssociationSet Name="FK_menuRole_menuID" Association="Self.FK_menuRole_menuID">
             <End Role="menu" EntitySet="menu" />
             <End Role="menuRole" EntitySet="menuRole" />
@@ -139,10 +161,6 @@
           <AssociationSet Name="FK_menuRole_roleID" Association="Self.FK_menuRole_roleID">
             <End Role="role" EntitySet="role" />
             <End Role="menuRole" EntitySet="menuRole" />
-          </AssociationSet>
-          <AssociationSet Name="FK_request_userID" Association="Self.FK_request_userID">
-            <End Role="user" EntitySet="user" />
-            <End Role="request" EntitySet="request" />
           </AssociationSet>
           <AssociationSet Name="FK_shift_userID" Association="Self.FK_shift_userID">
             <End Role="user" EntitySet="user" />
@@ -153,38 +171,36 @@
             <End Role="user" EntitySet="user" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="KYSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="menuRole" EntityType="KYSModel.menuRole" />
-          <EntitySet Name="role" EntityType="KYSModel.role" />
-          <EntitySet Name="shift" EntityType="KYSModel.shift" />
-          <EntitySet Name="user" EntityType="KYSModel.user" />
-          <AssociationSet Name="FK_menuRole_roleID" Association="KYSModel.FK_menuRole_roleID">
-            <End Role="role" EntitySet="role" />
-            <End Role="menuRole" EntitySet="menuRole" />
-          </AssociationSet>
-          <AssociationSet Name="FK_user_roleID" Association="KYSModel.FK_user_roleID">
-            <End Role="role" EntitySet="role" />
-            <End Role="user" EntitySet="user" />
-          </AssociationSet>
-          <AssociationSet Name="FK_shift_userID" Association="KYSModel.FK_shift_userID">
-            <End Role="user" EntitySet="user" />
-            <End Role="shift" EntitySet="shift" />
-          </AssociationSet>
-          <EntitySet Name="menu" EntityType="KYSModel.menu" />
-          <AssociationSet Name="FK_menuRole_menuID" Association="KYSModel.FK_menuRole_menuID">
-            <End Role="menu" EntitySet="menu" />
-            <End Role="menuRole" EntitySet="menuRole" />
-          </AssociationSet>
-          <EntitySet Name="request" EntityType="KYSModel.request" />
-          <AssociationSet Name="FK_request_userID" Association="KYSModel.FK_request_userID">
-            <End Role="user" EntitySet="user" />
-            <End Role="request" EntitySet="request" />
-          </AssociationSet>
-        </EntityContainer>
+        <EntityType Name="IzinTalebi">
+          <Key>
+            <PropertyRef Name="IzinID" />
+          </Key>
+          <Property Name="IzinID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="userFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="IzinTalebi1" Relationship="Self.FK_IzinTalebi_IzinTalebi" FromRole="IzinTalebi" ToRole="IzinTalebi1" />
+          <NavigationProperty Name="IzinTalebi2" Relationship="Self.FK_IzinTalebi_IzinTalebi" FromRole="IzinTalebi1" ToRole="IzinTalebi" />
+          <NavigationProperty Name="user" Relationship="Self.FK_IzinTalebi_user" FromRole="IzinTalebi" ToRole="user" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="menuID" />
+          </Key>
+          <Property Name="menuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parentMenuID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menuName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="menuURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="menuRole" Relationship="Self.FK_menuRole_menuID" FromRole="menu" ToRole="menuRole" />
+        </EntityType>
         <EntityType Name="menuRole">
           <Key>
             <PropertyRef Name="menuRoleID" />
@@ -192,17 +208,17 @@
           <Property Name="menuRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="menuId" Type="Int32" Nullable="false" />
           <Property Name="roleID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="role" Relationship="KYSModel.FK_menuRole_roleID" FromRole="menuRole" ToRole="role" />
-          <NavigationProperty Name="menu" Relationship="KYSModel.FK_menuRole_menuID" FromRole="menuRole" ToRole="menu" />
+          <NavigationProperty Name="menu" Relationship="Self.FK_menuRole_menuID" FromRole="menuRole" ToRole="menu" />
+          <NavigationProperty Name="role" Relationship="Self.FK_menuRole_roleID" FromRole="menuRole" ToRole="role" />
         </EntityType>
         <EntityType Name="role">
           <Key>
             <PropertyRef Name="roleID" />
           </Key>
           <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="roleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="menuRole" Relationship="KYSModel.FK_menuRole_roleID" FromRole="role" ToRole="menuRole" />
-          <NavigationProperty Name="user" Relationship="KYSModel.FK_user_roleID" FromRole="role" ToRole="user" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="menuRole" Relationship="Self.FK_menuRole_roleID" FromRole="role" ToRole="menuRole" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_roleID" FromRole="role" ToRole="user" />
         </EntityType>
         <EntityType Name="shift">
           <Key>
@@ -214,29 +230,65 @@
           <Property Name="shiftLogin" Type="Time" Nullable="false" Precision="7" />
           <Property Name="shiftOut" Type="Time" Nullable="false" Precision="7" />
           <Property Name="shiftSum" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="user" Relationship="KYSModel.FK_shift_userID" FromRole="shift" ToRole="user" />
+          <NavigationProperty Name="user" Relationship="Self.FK_shift_userID" FromRole="shift" ToRole="user" />
         </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="userID" />
           </Key>
           <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="isActive" Type="Boolean" />
-          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="userPassword" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="userEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="userFirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="userLastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="userPhone" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="userAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userPassword" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userFirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userLastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userPhone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="roleID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="role" Relationship="KYSModel.FK_user_roleID" FromRole="user" ToRole="role" />
-          <NavigationProperty Name="shift" Relationship="KYSModel.FK_shift_userID" FromRole="user" ToRole="shift" />
-          <NavigationProperty Name="request" Relationship="KYSModel.FK_request_userID" FromRole="user" ToRole="request" />
+          <NavigationProperty Name="IzinTalebi" Relationship="Self.FK_IzinTalebi_user" FromRole="user" ToRole="IzinTalebi" />
+          <NavigationProperty Name="role" Relationship="Self.FK_user_roleID" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="shift" Relationship="Self.FK_shift_userID" FromRole="user" ToRole="shift" />
         </EntityType>
+        <Association Name="FK_IzinTalebi_IzinTalebi">
+          <End Role="IzinTalebi" Type="Self.IzinTalebi" Multiplicity="1" />
+          <End Role="IzinTalebi1" Type="Self.IzinTalebi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="IzinTalebi">
+              <PropertyRef Name="IzinID" />
+            </Principal>
+            <Dependent Role="IzinTalebi1">
+              <PropertyRef Name="IzinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IzinTalebi_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="IzinTalebi" Type="Self.IzinTalebi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="IzinTalebi">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menuRole_menuID">
+          <End Role="menu" Type="Self.menu" Multiplicity="1" />
+          <End Role="menuRole" Type="Self.menuRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="menuID" />
+            </Principal>
+            <Dependent Role="menuRole">
+              <PropertyRef Name="menuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_menuRole_roleID">
-          <End Type="KYSModel.role" Role="role" Multiplicity="1" />
-          <End Type="KYSModel.menuRole" Role="menuRole" Multiplicity="*" />
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="menuRole" Type="Self.menuRole" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role">
               <PropertyRef Name="roleID" />
@@ -247,8 +299,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_user_roleID">
-          <End Type="KYSModel.role" Role="role" Multiplicity="1" />
-          <End Type="KYSModel.user" Role="user" Multiplicity="*" />
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role">
               <PropertyRef Name="roleID" />
@@ -259,8 +311,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_shift_userID">
-          <End Type="KYSModel.user" Role="user" Multiplicity="1" />
-          <End Type="KYSModel.shift" Role="shift" Multiplicity="*" />
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="shift" Type="Self.shift" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="user">
               <PropertyRef Name="userID" />
@@ -270,120 +322,109 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="menu">
-          <Key>
-            <PropertyRef Name="menuID" />
-          </Key>
-          <Property Name="menuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="parentMenuID" Type="Int32" Nullable="false" />
-          <Property Name="menuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="menuURL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="isActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="menuRole" Relationship="KYSModel.FK_menuRole_menuID" FromRole="menu" ToRole="menuRole" />
-        </EntityType>
-        <Association Name="FK_menuRole_menuID">
-          <End Type="KYSModel.menu" Role="menu" Multiplicity="1" />
-          <End Type="KYSModel.menuRole" Role="menuRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="menu">
-              <PropertyRef Name="menuID" />
-            </Principal>
-            <Dependent Role="menuRole">
-              <PropertyRef Name="menuId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="request">
-          <Key>
-            <PropertyRef Name="requestID" />
-          </Key>
-          <Property Name="requestID" Type="Int32" Nullable="false" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="user" Relationship="KYSModel.FK_request_userID" FromRole="request" ToRole="user" />
-        </EntityType>
-        <Association Name="FK_request_userID">
-          <End Type="KYSModel.user" Role="user" Multiplicity="1" />
-          <End Type="KYSModel.request" Role="request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="request">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        </Schema>
+        <EntityContainer Name="KYSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IzinTalebi" EntityType="Self.IzinTalebi" />
+          <EntitySet Name="menu" EntityType="Self.menu" />
+          <EntitySet Name="menuRole" EntityType="Self.menuRole" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="shift" EntityType="Self.shift" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <AssociationSet Name="FK_IzinTalebi_IzinTalebi" Association="Self.FK_IzinTalebi_IzinTalebi">
+            <End Role="IzinTalebi" EntitySet="IzinTalebi" />
+            <End Role="IzinTalebi1" EntitySet="IzinTalebi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IzinTalebi_user" Association="Self.FK_IzinTalebi_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="IzinTalebi" EntitySet="IzinTalebi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menuRole_menuID" Association="Self.FK_menuRole_menuID">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menuRole" EntitySet="menuRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menuRole_roleID" Association="Self.FK_menuRole_roleID">
+            <End Role="role" EntitySet="role" />
+            <End Role="menuRole" EntitySet="menuRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_roleID" Association="Self.FK_user_roleID">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_shift_userID" Association="Self.FK_shift_userID">
+            <End Role="user" EntitySet="user" />
+            <End Role="shift" EntitySet="shift" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KYSModelStoreContainer" CdmEntityContainer="KYSEntities">
-          <EntitySetMapping Name="menuRole">
-            <EntityTypeMapping TypeName="KYSModel.menuRole">
-              <MappingFragment StoreEntitySet="menuRole">
-                <ScalarProperty Name="roleID" ColumnName="roleID" />
-                <ScalarProperty Name="menuId" ColumnName="menuId" />
-                <ScalarProperty Name="menuRoleID" ColumnName="menuRoleID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="role">
-            <EntityTypeMapping TypeName="KYSModel.role">
-              <MappingFragment StoreEntitySet="role">
-                <ScalarProperty Name="roleName" ColumnName="roleName" />
-                <ScalarProperty Name="roleID" ColumnName="roleID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="shift">
-            <EntityTypeMapping TypeName="KYSModel.shift">
-              <MappingFragment StoreEntitySet="shift">
-                <ScalarProperty Name="shiftSum" ColumnName="shiftSum" />
-                <ScalarProperty Name="shiftOut" ColumnName="shiftOut" />
-                <ScalarProperty Name="shiftLogin" ColumnName="shiftLogin" />
-                <ScalarProperty Name="shiftDate" ColumnName="shiftDate" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="shiftID" ColumnName="shiftID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="user">
-            <EntityTypeMapping TypeName="KYSModel.user">
-              <MappingFragment StoreEntitySet="user">
-                <ScalarProperty Name="roleID" ColumnName="roleID" />
-                <ScalarProperty Name="userAddress" ColumnName="userAddress" />
-                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
-                <ScalarProperty Name="userLastName" ColumnName="userLastName" />
+          <EntitySetMapping Name="IzinTalebi">
+            <EntityTypeMapping TypeName="KYSModel.IzinTalebi">
+              <MappingFragment StoreEntitySet="IzinTalebi">
+                <ScalarProperty Name="IzinID" ColumnName="IzinID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="userFirstName" ColumnName="userFirstName" />
+                <ScalarProperty Name="userLastName" ColumnName="userLastName" />
                 <ScalarProperty Name="userEmail" ColumnName="userEmail" />
-                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="menu">
             <EntityTypeMapping TypeName="KYSModel.menu">
               <MappingFragment StoreEntitySet="menu">
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-                <ScalarProperty Name="menuURL" ColumnName="menuURL" />
-                <ScalarProperty Name="menuName" ColumnName="menuName" />
-                <ScalarProperty Name="parentMenuID" ColumnName="parentMenuID" />
                 <ScalarProperty Name="menuID" ColumnName="menuID" />
+                <ScalarProperty Name="parentMenuID" ColumnName="parentMenuID" />
+                <ScalarProperty Name="menuName" ColumnName="menuName" />
+                <ScalarProperty Name="menuURL" ColumnName="menuURL" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="request">
-            <EntityTypeMapping TypeName="KYSModel.request">
-              <MappingFragment StoreEntitySet="request">
-                <ScalarProperty Name="endDate" ColumnName="endDate" />
-                <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <EntitySetMapping Name="menuRole">
+            <EntityTypeMapping TypeName="KYSModel.menuRole">
+              <MappingFragment StoreEntitySet="menuRole">
+                <ScalarProperty Name="menuRoleID" ColumnName="menuRoleID" />
+                <ScalarProperty Name="menuId" ColumnName="menuId" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="KYSModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shift">
+            <EntityTypeMapping TypeName="KYSModel.shift">
+              <MappingFragment StoreEntitySet="shift">
+                <ScalarProperty Name="shiftID" ColumnName="shiftID" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="requestID" ColumnName="requestID" />
+                <ScalarProperty Name="shiftDate" ColumnName="shiftDate" />
+                <ScalarProperty Name="shiftLogin" ColumnName="shiftLogin" />
+                <ScalarProperty Name="shiftOut" ColumnName="shiftOut" />
+                <ScalarProperty Name="shiftSum" ColumnName="shiftSum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="KYSModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userFirstName" ColumnName="userFirstName" />
+                <ScalarProperty Name="userLastName" ColumnName="userLastName" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

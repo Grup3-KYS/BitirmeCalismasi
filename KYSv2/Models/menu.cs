@@ -21,7 +21,7 @@ namespace KYSv2.Models
         }
     
         public int menuID { get; set; }
-        public int parentMenuID { get; set; }
+        public string parentMenuID { get; set; }
         public string menuName { get; set; }
         public string menuURL { get; set; }
         public bool isActive { get; set; }
