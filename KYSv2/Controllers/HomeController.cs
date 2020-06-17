@@ -11,7 +11,7 @@ namespace KYSv2.Controllers
     public class HomeController : Controller
     {
         KYSEntities ent = new KYSEntities();
-
+        ProjectList pList = new ProjectList();
 
         // GET: Home
         public ActionResult Index()
@@ -19,6 +19,32 @@ namespace KYSv2.Controllers
             return View();
         }
 
+        public ActionResult Projeler()
+        {
+           pList.project = ent.projects.ToList();
+           return View(pList);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Projeler(projects project, HttpPostedFileBase ProjectUrl)
+        {
+            string projectName = System.IO.Path.GetFileName(ProjectUrl.FileName);
+            string psychialPath = Server.MapPath("~/Projects/" + projectName);
+            ProjectUrl.SaveAs(psychialPath);
+            project.ProjectPath = "/Projects/" + projectName;
+            try
+            {
+                ent.projects.Add(project);
+                ent.SaveChanges();
+                return View();
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+       
         public ActionResult Haberlesme()
         {
             return View();

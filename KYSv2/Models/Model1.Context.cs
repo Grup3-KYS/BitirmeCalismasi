@@ -28,6 +28,7 @@ namespace KYSv2.Models
         public virtual DbSet<IzinTalebi> IzinTalebi { get; set; }
         public virtual DbSet<menu> menu { get; set; }
         public virtual DbSet<menuRole> menuRole { get; set; }
+        public virtual DbSet<projects> projects { get; set; }
         public virtual DbSet<role> role { get; set; }
         public virtual DbSet<shift> shift { get; set; }
         public virtual DbSet<user> user { get; set; }

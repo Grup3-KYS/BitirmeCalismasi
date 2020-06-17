@@ -1,0 +1,51 @@
+﻿@model KYSv2.Models.ProjectList
+
+@{
+    ViewBag.Title = "Projeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Projeler", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <h4 class="lead">Proje Dosyanız:</h4>
+    <input type="file" name="ProjectUrl"/>
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+}
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("ID")
+            </th>
+            <th>
+                @Html.DisplayName("Adı")
+            </th>
+            <th>
+                @Html.DisplayName("Yolu")
+            </th>
+            <th>
+                @Html.DisplayName("Aktiflik Durumu")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var project in Model.project)
+        {
+            <tbody class="bg-white">
+                <tr>
+                    <th scope="row">@project.id</th>
+                    <td>@project.ProjectName</td>
+                    <td>@project.ProjectPath</td>
+                    <td>@project.isActive</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditAdmin", new { id = project.id }, new { @class = "btn btn-primary btn-sm" }) |
+                        @Html.ActionLink("Details", "Details", new { id = project.id }, new { @class = "btn btn-success btn-sm" }) |
+                        @Html.ActionLink("Sil", "DeleteAdmin", new { id = project.id }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+    </table>
